@@ -1,0 +1,13 @@
+Given the job description, your task is to find and categorize **Technical Skills**:
+
+1. Identify and create specific, relevant categories for technical skills, tools, and libraries based on the job description.
+2. List the specific technical skills mentioned in the job description and validate if they fall under the correct category (e.g., technologies, programming languages, tools, etc.).
+3. Include only the tools, libraries, and technologies explicitly mentioned in the job description.
+4. Ensure that only technical skills and tools are included, and avoid any abstract concepts or non-technical terms.
+5. If a category or specific skill/tool is not mentioned in the job description, do not include it in the response.
+6. The response should be structured as follows:
+
+   - **Category Name**: Skill Name 1, Skill Name 2, Skill Name 3, ...
+
+7. **Validate** that the listed skills fall under the correct category based on the job description. Each skill should be placed under the most specific category it fits into."
+8. Do not include any introductory or concluding sentences like 'Here is your' Only provide the skills content.
