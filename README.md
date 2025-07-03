@@ -1,1 +1,1 @@
-# Opti-Resume:  AI-Powered Resume Optimization
+  AI-Powered Resume Optimization
