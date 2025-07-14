@@ -1,6 +1,4 @@
 import streamlit as st
-api_key = st.secrets["GOOGLE_API_KEY"]
-
 from JobFitAI.main import *
 
 # Page Configurations
