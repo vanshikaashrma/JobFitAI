@@ -1,8 +1,8 @@
 import streamlit as st
-from OptiResume.utils import ExtractPDF, SendRequest, CreatePDF
+from JobFitAI.utils import ExtractPDF, SendRequest, CreatePDF
 
-def OptimiseResume():
-    st.title("Opti-Resume: AI-Powered Resume Optimization")
+def JobFitAI():
+    st.title("JobFitAI: AI-Powered Resume Optimization")
     uploaded_file = st.file_uploader("Upload Your Resume (PDF only)", type=["pdf"])
 
     if uploaded_file is not None:
@@ -20,7 +20,7 @@ def OptimiseResume():
                 st.error("There was an issue generating the optimized resume.")
 
 def ATSAnalysis():
-    st.title("Opti-Resume: ATS Score Analysis")
+    st.title("JobFitAI: ATS Score Analysis")
     uploaded_file = st.file_uploader("Upload Your Resume (PDF only)", type=["pdf"])
     job_description = st.text_area("Enter the Job Description", height=200)
     
@@ -33,7 +33,7 @@ def ATSAnalysis():
 
 
 def SkillsAnalysis():
-    st.title("Opti-Resume: Skills Analysis")
+    st.title("JobFitAI: Skills Analysis")
     job_description = st.text_area("Enter the Job Description", height=200)
     if st.button("Analyze Keywords"):
         if job_description:
@@ -44,7 +44,7 @@ def SkillsAnalysis():
             st.error("Please enter a job description to analyze.")
 
 def BulletPointAnalysis():
-    st.title("Opti-Resume: Bullet Point Optimization")
+    st.title("JobFitAI: Bullet Point Optimization")
     bullet_ = st.text_area("Enter Your Bullet Point", height=100)   
         
     if st.button("Analyze Bullet Points"):
@@ -55,7 +55,7 @@ def BulletPointAnalysis():
             st.error("Please Enter a Bullet Point to Analyze.")
 
 def MetricAnalysis():
-    st.title("Opti-Resume: Metric Analysis")
+    st.title("JobFitAI: Metric Analysis")
     bullet = st.text_area("Enter Your Bullet Point", height=100)
     if st.button("Analyze"):
         if bullet:

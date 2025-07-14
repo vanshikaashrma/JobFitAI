@@ -1,9 +1,9 @@
 import streamlit as st
-from OptiResume.main import *
+from JobFitAI.main import *
 
 # Page Configurations
-st.set_page_config(page_title="Opti-Resume: AI-Powered Resume Optimizer", page_icon="⭐")
-st.sidebar.title("Opti-Resume - Tools")
+st.set_page_config(page_title="JobFitAI: AI-Powered Resume Optimizer", page_icon="⭐")
+st.sidebar.title("JobFitAI - Tools")
 page = st.sidebar.selectbox(
     "Select an option",
     ["Resume Optimisation", "Bullet-Point Analysis", "Know the Needed Skills", "ATS Score Analysis", "Metric Analytics"]
@@ -18,7 +18,7 @@ def load_css():
 st.markdown(f"<style>{load_css()}</style>", unsafe_allow_html=True)
 
 if page == "Resume Optimisation":
-    OptimiseResume()
+    JobFitAI()
 elif page == "Bullet-Point Analysis":
     BulletPointAnalysis()
 elif page == "Know the Needed Skills":
