@@ -3,3 +3,4 @@ fpdf
 PyPDF2
 python-dotenv
 google-generativeai
+google-api-python-client

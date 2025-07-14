@@ -10,9 +10,13 @@ import google.generativeai as genai
 
 # Load environment variables
 load_dotenv('.env')
-GOOGLE_API_KEY = st.secrets.get("GOOGLE_API_KEY") or os.getenv("GOOGLE_API_KEY")
-genai.configure(api_key=GOOGLE_API_KEY)
-
+GOOGLE_API_KEY = st.secrets.get("GOOGLE_API_KEY", os.getenv("GOOGLE_API_KEY"))
+st.write("API key loaded:", GOOGLE_API_KEY is not None)
+if GOOGLE_API_KEY:
+ genai.configure(api_key=GOOGLE_API_KEY)
+else:
+    st.error("key not found")
+    st.stop()
 # Function to Extract Text from PDF
 def ExtractPDF(file):
     pdf = PdfReader(file)
@@ -23,12 +27,14 @@ def ExtractPDF(file):
 
 # Function to Optimize Resume Text using Google Gemini API
 def SendRequest(prompt_filename, user_text):
-    import time
-
     model = genai.GenerativeModel(model_name="models/gemini-1.5-pro-latest")
 
-    with open(f"Prompts/{prompt_filename}", "r") as file:
-        prompt_template = file.read()
+    try:
+        with open(f"Prompts/{prompt_filename}", "r") as file:
+            prompt_template = file.read()
+    except FileNotFoundError:
+        st.error(f" Missing prompt file: {prompt_filename}")
+        return ""
 
     full_prompt = prompt_template + "\n" + user_text
 
