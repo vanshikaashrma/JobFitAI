@@ -11,7 +11,8 @@ def JobFitAI():
         if st.button("Optimize"):
             optimized_text = SendRequest("Optimisation-Prompt.txt", resume_text)
             st.text_area("Optimized Resume", optimized_text, height=300)
-            input_filename = f'Artifacts/{uploaded_file.name.split('.')[0]}'
+            input_filename = f"Artifacts/{uploaded_file.name.split('.')[0]}"
+
             optimized_filename = CreatePDF(optimized_text, input_filename)
             if optimized_filename:
                 with open(optimized_filename, "rb") as file:
