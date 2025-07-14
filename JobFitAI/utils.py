@@ -10,7 +10,7 @@ import google.generativeai as genai
 
 # Load environment variables
 load_dotenv('.env')
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+GOOGLE_API_KEY = st.secrets.get("GOOGLE_API_KEY") or os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # Function to Extract Text from PDF
