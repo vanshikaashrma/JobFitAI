@@ -4,6 +4,7 @@ import streamlit as st
 from fpdf import FPDF
 from PyPDF2 import PdfReader
 from datetime import datetime
+from io import BytesIO
 from dotenv import load_dotenv
 import google.generativeai as genai
 
@@ -58,7 +59,7 @@ def SendRequest(prompt_filename, user_text):
 
 
 # Function to create a PDF with optimized resume
-def CreatePDF(text, input_filename):
+def CreatePDF(text):
     pdf = FPDF()
     pdf.add_page()
     pdf.set_auto_page_break(auto=True, margin=10)
@@ -66,7 +67,5 @@ def CreatePDF(text, input_filename):
     pdf.set_font("Courier", size=10)
     for line in text.split("\n"):
         pdf.multi_cell(0, 10, line.encode('latin-1', 'replace').decode('latin-1'), align='L')
-    timestamp = datetime.now().strftime("%d%m%Y-%H%M%S")
-    file_name = f"{input_filename}_Optimized_{timestamp}.pdf"
-    pdf.output(file_name, 'F')
-    return file_name if os.path.exists(file_name) else None
+    pdf_bytes = pdf.output(dest='S').encode('latin-1')
+    return BytesIO(pdf_bytes)
