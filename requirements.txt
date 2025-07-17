@@ -4,3 +4,6 @@ PyPDF2
 python-dotenv
 google-generativeai
 google-api-python-client
+
+supabase==1.0.3
+
