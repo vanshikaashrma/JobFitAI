@@ -28,7 +28,7 @@ def ExtractPDF(file):
 
 # Function to Optimize Resume Text using Google Gemini API
 def SendRequest(prompt_filename, user_text):
-    model = genai.GenerativeModel(model_name="models/gemini-1.5-pro-latest")
+    model = genai.GenerativeModel(model_name="models/gemini-2.0-flash")
 
     try:
         with open(f"Prompts/{prompt_filename}", "r") as file:
